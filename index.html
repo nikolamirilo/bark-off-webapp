@@ -710,6 +710,14 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
 .store-badge small { font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .85; }
 .store-badge b { font-size: 1.32rem; font-weight: 700; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; letter-spacing: -.01em; }
 .store-badge.off { opacity: .5; cursor: not-allowed; pointer-events: none; }
+.btn-lg { min-height: 58px; padding: 14px 30px; font-size: 1.08rem; }
+.btn-lg .icon { width: 20px; height: 20px; }
+.apk-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.apk-meta .status { margin-top: 0; }
+.apk-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.apk-cta .faint { font-size: .88rem; font-weight: 700; }
+.mini-title { font-family: var(--font-body); font-size: .78rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 10px; }
+.ios-note { margin-bottom: 20px; }
 .notice { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; padding: 14px 16px; border-radius: var(--r-m); background: rgba(247, 156, 35, .08); border: 1px solid rgba(247, 156, 35, .3); color: var(--muted); font-size: .94rem; }
 .notice .icon { width: 20px; height: 20px; color: var(--amber-hi); margin-top: 2px; }
 .notice b { color: var(--cream); }
@@ -754,7 +762,6 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
 .input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 4px rgba(247, 156, 35, .2); background: #1d1c2f; }
 .input[aria-invalid="true"], .textarea[aria-invalid="true"] { border-color: var(--error); }
 fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
-.choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .choice { position: relative; }
 .choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
 .choice > span { display: flex; align-items: center; gap: 10px; padding: 13px 14px; border-radius: 14px; border: 1.5px solid var(--line-2); background: var(--night-2); font-weight: 800; transition: all .2s; height: 100%; }
@@ -875,8 +882,7 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
   <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
   <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
   <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.13-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.13a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.13 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.13a.5.5 0 0 1-.96 0z"/></symbol>
-  <symbol id="i-android" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M2.5 18.5a9.5 9.5 0 0 1 19 0zM7 14.2a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0-2.2 0zM14.8 14.2a1.1 1.1 0 1 0 2.2 0a1.1 1.1 0 1 0-2.2 0z"/><path d="M6.1 6.4 7 5.9l2 3.4-.9.5zM17.9 6.4 17 5.9l-2 3.4.9.5z"/></symbol>
-  <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.8zM14.2 5.9c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
   <symbol id="i-gplay" viewBox="0 0 24 24"><path fill="#00d7fe" d="M3.7 1.9 13.4 12l-9.7 10.1c-.4-.2-.7-.7-.7-1.2V3.1c0-.5.3-1 .7-1.2z"/><path fill="#00f076" d="M3.7 1.9c.4-.2.9-.2 1.3 0l11.9 6.7-3.5 3.4z"/><path fill="#ff3a44" d="M3.7 22.1l9.7-10.1 3.5 3.4L5 22.1c-.4.2-.9.2-1.3 0z"/><path fill="#ffce00" d="m16.9 8.6 3.6 2c.9.5.9 1.8 0 2.4l-3.6 2-3.5-3.4z"/></symbol>
 </svg>
 
@@ -920,7 +926,7 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <a class="pill" href="#beta"><span class="live-dot" aria-hidden="true"></span>Early access on Android<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="pill" href="#download"><span class="live-dot" aria-hidden="true"></span>Free on Android<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         <h1 class="display" id="hero-title" tabindex="-1">When they bark, <em class="you">you<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M4 14 C 40 5, 80 5, 112 10 S 172 15, 196 6"/></svg></em> answer.</h1>
         <p class="lede">BarkOff turns a spare phone into a calm companion for your dog. It listens while you are out and plays your own voice the moment the barking starts.</p>
         <div class="cta-row">
@@ -930,7 +936,7 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
         <ul class="trust">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ready in about 3 minutes</li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Listening stays on the phone</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Free during early access</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Free to use</li>
         </ul>
       </div>
 
@@ -1249,10 +1255,10 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
       <div class="cta-card">
         <div class="copy-col">
           <span class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>Testing group</span>
-          <h2 class="title-s">Help us get BarkOff ready for every dog.</h2>
-          <p class="copy">BarkOff is in early access on Android. Join the testing group to get the app first and tell us what to improve.</p>
+          <h2 class="title-s">Help us bring BarkOff to Google Play.</h2>
+          <p class="copy">Join the testing group to install BarkOff through a Google Play test, get new versions automatically, and tell us what to improve.</p>
           <ul class="perks">
-            <li><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>New versions first</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg>Updates through Google Play</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg>A direct line to the team</li>
             <li><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>A say in what comes next</li>
           </ul>
@@ -1293,11 +1299,15 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
         </details>
         <details name="faq">
           <summary>Which phones does it work on?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <div class="answer">Android 7.1 or newer, in early access now. iPhone is coming soon, and you can join the testing group to hear when it is ready.</div>
+          <div class="answer">Android phones with Android 7.1 or newer. You can download BarkOff from this site today, and it is coming to Google Play soon. BarkOff is not available for iPhone.</div>
+        </details>
+        <details name="faq">
+          <summary>Why does Android warn me when I install it?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
+          <div class="answer">Android shows a warning for any app that does not come from Google Play, so it is expected while BarkOff is a direct download. Allow the install, and only download BarkOff from this site.</div>
         </details>
         <details name="faq">
           <summary>How much does it cost?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
-          <div class="answer">BarkOff is free during early access. If you like it, you can support the team with a coffee.</div>
+          <div class="answer">Nothing. BarkOff is free. If you like it, you can support the team with a coffee.</div>
         </details>
         <details name="faq">
           <summary>Can I change the sensitivity later?<svg class="icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary>
@@ -1468,11 +1478,10 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
       <div class="table-scroll">
         <table class="spec">
           <tbody>
-            <tr><th scope="row">Android</th><td>Android 7.1 or newer<small>Early access through the testing group</small></td></tr>
-            <tr><th scope="row">iPhone</th><td>Coming soon</td></tr>
+            <tr><th scope="row">Phones</th><td>Android 7.1 or newer<small>Direct download now, Google Play coming soon</small></td></tr>
             <tr><th scope="row">Permissions</th><td>Microphone<small>Used only during a session or calibration</small></td></tr>
             <tr><th scope="row">Where data lives</th><td>On your phone<small>Voice clips, pet profile and reports</small></td></tr>
-            <tr><th scope="row">Price</th><td>Free during early access</td></tr>
+            <tr><th scope="row">Price</th><td>Free</td></tr>
             <tr><th scope="row">Language</th><td>English</td></tr>
           </tbody>
         </table>
@@ -1495,64 +1504,66 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
     <div class="wrap">
       <span class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>Download</span>
       <h1 class="display" id="download-title" tabindex="-1">Get BarkOff.</h1>
-      <p class="lede">Free on Android during early access. iPhone is coming soon.</p>
+      <p class="lede">Free for Android. Download it straight from this page while Google Play is on the way.</p>
     </div>
   </section>
 
-  <section class="section" style="padding-top:8px" aria-label="Platforms">
+  <section class="section" style="padding-top:8px" aria-label="Ways to get BarkOff">
     <div class="wrap">
+      <div class="notice ios-note" id="ios-note" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
+        <p><b>On an iPhone?</b> BarkOff is made for Android phones only. Open this page on an Android phone to install it.</p>
+      </div>
       <div class="platforms">
-        <article class="platform" id="pf-android" aria-labelledby="pf-android-title">
+        <article class="platform" id="pf-apk" aria-labelledby="pf-apk-title">
           <span class="you-tag" hidden>You are on Android</span>
           <div class="platform-head">
             <img src="assets/app-icon.webp" alt="BarkOff app icon" width="320" height="320">
             <div>
-              <h2 id="pf-android-title">BarkOff for Android</h2>
-              <span class="status early"><span class="live-dot" aria-hidden="true"></span>Early access</span>
+              <h2 id="pf-apk-title">BarkOff for Android</h2>
+              <div class="apk-meta">
+                <span class="status early">Free</span>
+                <span class="status soon">Latest version</span>
+                <span class="status soon">Android 7.1 or newer</span>
+              </div>
             </div>
           </div>
-          <div>
-            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.reactifysolutions.barkoff" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gplay"/></svg>
-              <span><small>Get it on</small><b>Google Play</b></span>
-            </a>
+          <div class="apk-cta">
+            <a class="btn btn-amber btn-lg" href="https://github.com/nikolamirilo/bark-off/releases/latest/download/barkoff.apk" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Download APK</a>
+            <span class="faint">Direct download from our GitHub releases</span>
+          </div>
+          <div class="apk-steps">
+            <h3 class="mini-title">How to install</h3>
+            <ol class="next-steps">
+              <li><div><b>Download the file</b><span>Tap Download APK on your Android phone.</span></div></li>
+              <li><div><b>Allow the install</b><span>If Android asks, allow installs from your browser, then go back.</span></div></li>
+              <li><div><b>Open BarkOff</b><span>Tap Install, then Open, and follow the 3-minute setup.</span></div></li>
+            </ol>
           </div>
           <div class="notice">
-            <svg class="icon" aria-hidden="true"><use href="#i-info"/></svg>
-            <p><b>BarkOff is in a closed test right now.</b> The Play Store page opens for testers only, so join the testing group first. We will send you the invite.</p>
-          </div>
-          <ol class="dl-flow">
-            <li>Join the testing group<small>Takes a minute</small></li>
-            <li>Accept the invite<small>From the email we send</small></li>
-            <li>Install from Google Play<small>Android 7.1 or newer</small></li>
-          </ol>
-          <div class="cta-row">
-            <a class="btn btn-amber" href="#beta" data-platform="android">Join the testing group<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>
+            <p><b>Android may show a warning.</b> It does this for any app that does not come from Google Play, so it is expected here. Only download BarkOff from this page.</p>
           </div>
           <div class="qr-row">
-            <div class="qr"><svg viewBox="0 0 37 37" shape-rendering="crispEdges" aria-hidden="true"><path  d="M0 0h37v37H0z"/><path  d="M0 0.5h7m1 0h1m2 0h3m1 0h2m1 0h2m3 0h2m2 0h2m1 0h7M0 1.5h1m5 0h1m3 0h1m2 0h1m3 0h2m1 0h2m6 0h1m1 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m3 0h1m3 0h1m1 0h6m4 0h3m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h1m1 0h2m2 0h3m2 0h2m2 0h4m1 0h1m1 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h3m1 0h3m1 0h1m1 0h1m2 0h3m1 0h4m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h2m1 0h4m3 0h5m3 0h1m1 0h1m1 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m1 0h1m1 0h1m1 0h2m1 0h2m2 0h2m1 0h1m1 0h1M0 8.5h1m3 0h1m1 0h3m4 0h2m3 0h6m3 0h7m2 0h1M1 9.5h1m1 0h2m5 0h1m1 0h1m1 0h1m1 0h2m1 0h2m2 0h1m1 0h4m3 0h2m1 0h1M2 10.5h1m1 0h3m1 0h2m6 0h1m1 0h1m2 0h1m1 0h1m1 0h5m2 0h3M2 11.5h2m7 0h1m1 0h2m2 0h6m1 0h1m1 0h1m2 0h1m3 0h3M1 12.5h4m1 0h1m2 0h4m1 0h4m1 0h1m1 0h4m4 0h2m2 0h4M4 13.5h2m1 0h4m1 0h1m1 0h5m4 0h2m1 0h3m3 0h2M0 14.5h3m3 0h2m1 0h5m1 0h2m1 0h1m3 0h6m3 0h4M1 15.5h3m3 0h1m1 0h2m1 0h2m1 0h1m5 0h4m1 0h1m4 0h2m1 0h1M0 16.5h2m1 0h1m1 0h3m2 0h4m1 0h2m2 0h6m4 0h2m2 0h2M1 17.5h1m2 0h2m1 0h2m1 0h3m1 0h1m3 0h1m2 0h1m1 0h1m2 0h3m3 0h4M0 18.5h4m1 0h3m2 0h1m2 0h1m1 0h1m1 0h2m4 0h2m1 0h2m2 0h1m1 0h1m1 0h1M1 19.5h1m5 0h2m2 0h2m2 0h3m1 0h3m2 0h1m2 0h3m1 0h2m1 0h2M2 20.5h8m2 0h2m3 0h1m1 0h1m1 0h4m2 0h1m1 0h3m2 0h1M0 21.5h5m3 0h1m1 0h2m1 0h1m1 0h2m1 0h1m3 0h2m2 0h3m2 0h2M3 22.5h2m1 0h2m4 0h1m2 0h1m1 0h1m2 0h5m1 0h4m1 0h4M0 23.5h2m1 0h1m1 0h1m2 0h2m1 0h1m2 0h5m2 0h1m2 0h1m6 0h2m1 0h1m1 0h1M1 24.5h2m2 0h6m2 0h1m1 0h1m2 0h7m2 0h1m1 0h3m1 0h3M0 25.5h1m2 0h3m3 0h1m3 0h1m2 0h1m5 0h2m1 0h1m1 0h2m2 0h2M2 26.5h2m2 0h1m2 0h1m1 0h1m1 0h2m1 0h3m1 0h1m1 0h3m1 0h4m1 0h1M2 27.5h1m1 0h2m2 0h1m1 0h1m1 0h2m3 0h7m2 0h2m3 0h2m1 0h1m1 0h1M0 28.5h2m2 0h4m1 0h4m2 0h1m1 0h1m2 0h5m1 0h1m1 0h5m1 0h1M8 29.5h1m4 0h5m5 0h1m1 0h2m1 0h1m3 0h1m2 0h1M0 30.5h7m1 0h2m1 0h1m3 0h1m2 0h1m1 0h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1M0 31.5h1m5 0h1m2 0h4m2 0h2m2 0h4m3 0h3m3 0h3m1 0h1M0 32.5h1m1 0h3m1 0h1m1 0h1m1 0h3m3 0h1m3 0h3m1 0h1m3 0h7m1 0h1M0 33.5h1m1 0h3m1 0h1m2 0h2m1 0h3m3 0h1m4 0h1m3 0h1m1 0h3m1 0h2m1 0h1M0 34.5h1m1 0h3m1 0h1m3 0h2m1 0h1m1 0h1m1 0h2m1 0h2m1 0h1m1 0h3m2 0h1M0 35.5h1m5 0h1m2 0h9m1 0h1m1 0h1m1 0h2m4 0h1m2 0h1m1 0h2M0 36.5h7m1 0h1m1 0h2m1 0h2m2 0h1m2 0h2m2 0h1m2 0h1m1 0h1m1 0h1m2 0h3"/></svg></div>
-            <p><b>On a computer?</b>Scan this with your Android phone to open BarkOff on Google Play.</p>
+            <div class="qr"><svg viewBox="0 0 37 37" shape-rendering="crispEdges" aria-hidden="true"><path d="M0 0h37v37H0z"/><path d="M0 0.5h7m5 0h1m1 0h3m1 0h4m1 0h1m4 0h1m1 0h7M0 1.5h1m5 0h1m3 0h1m3 0h2m2 0h1m2 0h1m2 0h2m1 0h1m2 0h1m5 0h1M0 2.5h1m1 0h3m1 0h1m1 0h3m1 0h3m1 0h1m4 0h4m1 0h3m1 0h1m1 0h3m1 0h1M0 3.5h1m1 0h3m1 0h1m1 0h2m1 0h5m1 0h1m4 0h1m1 0h4m2 0h1m1 0h3m1 0h1M0 4.5h1m1 0h3m1 0h1m1 0h2m1 0h2m1 0h1m2 0h1m1 0h3m1 0h1m1 0h1m2 0h1m1 0h1m1 0h3m1 0h1M0 5.5h1m5 0h1m1 0h1m1 0h1m4 0h1m1 0h2m2 0h1m2 0h4m2 0h1m5 0h1M0 6.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M8 7.5h1m3 0h2m2 0h1m2 0h1m1 0h2m3 0h1m1 0h1M0 8.5h1m1 0h5m2 0h2m1 0h1m1 0h1m3 0h1m1 0h1m1 0h5m3 0h5M1 9.5h4m2 0h1m1 0h1m1 0h1m1 0h4m1 0h3m1 0h2m1 0h2m1 0h1m2 0h1m3 0h1M0 10.5h3m1 0h1m1 0h2m2 0h2m1 0h2m2 0h2m1 0h3m2 0h6m4 0h2M0 11.5h2m1 0h3m1 0h1m1 0h2m2 0h2m1 0h1m1 0h1m2 0h3m2 0h1m1 0h2m1 0h2m3 0h1M3 12.5h1m2 0h6m1 0h2m1 0h2m4 0h5m2 0h2m1 0h5M1 13.5h2m4 0h1m1 0h1m4 0h1m1 0h6m1 0h1m7 0h1M2 14.5h5m1 0h1m3 0h6m2 0h1m4 0h3m2 0h4m1 0h2M1 15.5h1m1 0h1m5 0h1m2 0h1m3 0h6m1 0h1m2 0h1m2 0h4m3 0h1M0 16.5h4m1 0h5m2 0h1m1 0h1m1 0h1m2 0h1m2 0h6m1 0h2m1 0h1m1 0h2M0 17.5h1m2 0h1m4 0h1m2 0h1m1 0h1m1 0h1m1 0h4m2 0h3m3 0h1m1 0h1m1 0h1m1 0h1M1 18.5h6m1 0h2m1 0h3m1 0h4m2 0h1m2 0h1m1 0h2m3 0h2m2 0h2M0 19.5h1m2 0h3m1 0h2m1 0h2m3 0h1m3 0h4m3 0h7m3 0h1M0 20.5h1m1 0h1m1 0h3m3 0h2m1 0h1m1 0h1m1 0h3m2 0h1m1 0h2m1 0h1m1 0h2m1 0h1m1 0h1M1 21.5h4m4 0h1m2 0h3m3 0h2m2 0h2m1 0h1m2 0h2m3 0h1M1 22.5h2m1 0h1m1 0h1m1 0h5m2 0h1m2 0h1m1 0h1m4 0h9m1 0h2M0 23.5h1m2 0h2m2 0h1m2 0h1m1 0h3m1 0h1m2 0h6m2 0h2m1 0h3m2 0h2M1 24.5h1m1 0h1m2 0h1m1 0h1m1 0h4m1 0h1m2 0h2m2 0h9m1 0h1m1 0h3M0 25.5h1m2 0h2m2 0h3m2 0h1m1 0h4m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m4 0h1M0 26.5h1m2 0h5m1 0h1m3 0h1m11 0h8m1 0h3M0 27.5h1m1 0h2m3 0h2m4 0h2m1 0h1m2 0h3m2 0h1m1 0h1m3 0h1m4 0h2M0 28.5h1m1 0h5m1 0h2m1 0h1m5 0h1m4 0h1m1 0h12M8 29.5h1m4 0h2m1 0h5m2 0h1m1 0h1m2 0h1m3 0h2M0 30.5h7m2 0h2m3 0h2m1 0h1m4 0h1m3 0h1m1 0h1m1 0h1m1 0h1m1 0h3M0 31.5h1m5 0h1m1 0h5m1 0h1m1 0h3m1 0h3m1 0h1m3 0h1m3 0h2M0 32.5h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h4m2 0h1m2 0h11m1 0h1m1 0h1M0 33.5h1m1 0h3m1 0h1m1 0h4m2 0h2m1 0h4m2 0h1m1 0h1m1 0h1m1 0h2m1 0h1m3 0h1M0 34.5h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m1 0h4m3 0h1m3 0h4m6 0h2M0 35.5h1m5 0h1m6 0h3m3 0h5m4 0h3m1 0h1m3 0h1M0 36.5h7m1 0h2m2 0h1m2 0h1m1 0h1m4 0h5m2 0h2m1 0h1m1 0h3"/></svg></div>
+            <p><b>On a computer?</b>Scan this with your Android phone to download BarkOff.</p>
           </div>
         </article>
 
-        <article class="platform" id="pf-ios" aria-labelledby="pf-ios-title">
-          <span class="you-tag" hidden>You are on iPhone</span>
-          <div class="platform-head">
-            <img src="assets/app-icon.webp" alt="BarkOff app icon" width="320" height="320">
-            <div>
-              <h2 id="pf-ios-title">BarkOff for iPhone</h2>
-              <span class="status soon">Coming soon</span>
-            </div>
+        <article class="platform" id="pf-play" aria-labelledby="pf-play-title">
+          <div>
+            <h2 id="pf-play-title">Google Play</h2>
+            <span class="status soon">Coming soon</span>
           </div>
           <div>
             <span class="store-badge off" aria-disabled="true">
-              <svg class="icon fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-apple"/></svg>
-              <span><small>Coming soon to the</small><b>App Store</b></span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-gplay"/></svg>
+              <span><small>Coming soon to</small><b>Google Play</b></span>
             </span>
           </div>
-          <p class="muted">Want BarkOff on your iPhone? Join the list and we will tell you as soon as iPhone testing opens.</p>
+          <p class="muted">We are getting BarkOff ready for Google Play. Join the testing group to install it through a Google Play test and get new versions automatically.</p>
           <div class="cta-row">
-            <a class="btn btn-ghost" href="#beta" data-platform="ios"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg>Notify me</a>
+            <a class="btn btn-ghost" href="#beta"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>Join the testing group</a>
           </div>
         </article>
       </div>
@@ -1580,7 +1591,7 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
     <div class="wrap">
       <span class="eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>Testing group</span>
       <h1 class="display" id="beta-title" tabindex="-1">Join the BarkOff testing group.</h1>
-      <p class="lede">Try BarkOff before anyone else, tell us what works, and help us make it better for every dog.</p>
+      <p class="lede">Help us bring BarkOff to Google Play. Testers install it through a Google Play test and tell us what to improve.</p>
     </div>
   </section>
 
@@ -1590,7 +1601,7 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
         <div class="info-block">
           <h2>What you get</h2>
           <ul class="tick-list">
-            <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg></span><div><b>Early access</b><span>BarkOff and every new version before the public release.</span></div></li>
+            <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-sparkle"/></svg></span><div><b>Updates through Google Play</b><span>Install BarkOff from Google Play and get every new version automatically.</span></div></li>
             <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-message"/></svg></span><div><b>A direct line to the team</b><span>Your bug reports and ideas go straight to the people building the app.</span></div></li>
             <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span><div><b>A say in what comes next</b><span>Testers help decide which features we build first.</span></div></li>
           </ul>
@@ -1617,7 +1628,7 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
       <div class="form-card" id="beta-card">
         <div id="beta-form-wrap">
           <h2>Save my spot</h2>
-          <p>It takes a minute. Fields marked optional can be skipped.</p>
+          <p>It takes a minute. You need an Android phone and a Google account.</p>
           <form class="form" id="beta-form" novalidate>
             <div class="field">
               <label for="beta-name">First name</label>
@@ -1628,13 +1639,6 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
               <input class="input" id="beta-email" name="email" type="email" autocomplete="email" required maxlength="120" placeholder="alex@gmail.com" aria-describedby="beta-email-hint">
               <span class="hint" id="beta-email-hint">Use the email of the Google account on your phone. That is the one Google Play checks.</span>
             </div>
-            <fieldset class="field">
-              <legend>Your phone</legend>
-              <div class="choice-grid">
-                <label class="choice"><input type="radio" name="platform" id="beta-android" value="android" checked><span><svg class="icon fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-android"/></svg><span>Android<small>Available now</small></span></span></label>
-                <label class="choice"><input type="radio" name="platform" id="beta-ios" value="ios"><span><svg class="icon fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-apple"/></svg><span>iPhone<small>Join the waitlist</small></span></span></label>
-              </div>
-            </fieldset>
             <div class="row2">
               <div class="field">
                 <label for="beta-dog">Your dog's name <span class="opt">optional</span></label>
@@ -1792,6 +1796,7 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
             <li>When you use a form on this site, we receive what you type in it, such as your name, email and message.</li>
             <li>We use it only to reply to you and to run the testing group.</li>
             <li>To add you as a tester, we enter your email in the Google Play Console.</li>
+            <li>APK downloads come from GitHub, which may record technical details such as your IP address.</li>
           </ul>
         </section>
         <section>
@@ -2049,7 +2054,6 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
   const TITLES = { home: "BarkOff", features: "Features | BarkOff", download: "Download | BarkOff", beta: "Testing group | BarkOff", contact: "Contact | BarkOff", privacy: "Privacy | BarkOff", notfound: "Not found | BarkOff" };
   let currentView = "home";
   let lastToken = null;
-  let pendingPlatform = null;
   const viewHooks = {};
 
   function resolve(t) {
@@ -2111,7 +2115,6 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
       if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
       return;
     }
-    if (a.dataset.platform) pendingPlatform = a.dataset.platform;
     show(href.slice(1));
   });
 
@@ -2876,8 +2879,13 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
       const ua = navigator.userAgent || "";
       const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
       const isAndroid = /Android/i.test(ua);
-      const card = isAndroid ? $("#pf-android") : isIOS ? $("#pf-ios") : null;
-      if (card) { card.classList.add("is-you"); card.querySelector(".you-tag").hidden = false; }
+      if (isAndroid) {
+        const card = $("#pf-apk");
+        card.classList.add("is-you");
+        card.querySelector(".you-tag").hidden = false;
+      } else if (isIOS) {
+        $("#ios-note").hidden = false;
+      }
     };
   })();
 
@@ -2972,23 +2980,15 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
       const name = (d.name || "").trim(), email = (d.email || "").trim(), dog = (d.dog || "").trim();
       box.replaceChildren();
       box.append(burst());
-      if (d.platform === "ios") {
-        box.append(el("h2", { text: `You are on the list, ${name}.` }));
-        box.append(el("p", { text: `We will email ${email} as soon as iPhone testing opens${dog ? `, so ${dog} can join in` : ""}.` }));
-        const steps = el("ol", { class: "next-steps" });
-        steps.append(stepItem("Watch your inbox", "Your invite comes from barkoffapp@gmail.com."), stepItem("Follow along", "We share progress on Instagram and TikTok."));
-        box.append(steps);
-      } else {
-        box.append(el("h2", { text: `You are in, ${name}.` }));
-        box.append(el("p", { text: dog ? `Here is what happens next for you and ${dog}.` : "Here is what happens next." }));
-        const steps = el("ol", { class: "next-steps" });
-        steps.append(
-          stepItem("We add you to the tester list", `Using your Google Play email, ${email}.`),
-          stepItem("Watch your inbox", "We send the Google Play invite link from barkoffapp@gmail.com."),
-          stepItem("Accept and install", "Open the link, accept the test, then install BarkOff from Google Play."),
-        );
-        box.append(steps);
-      }
+      box.append(el("h2", { text: `You are in, ${name}.` }));
+      box.append(el("p", { text: dog ? `Here is what happens next for you and ${dog}.` : "Here is what happens next." }));
+      const steps = el("ol", { class: "next-steps" });
+      steps.append(
+        stepItem("We add you to the tester list", `Using your Google Play email, ${email}.`),
+        stepItem("Watch your inbox", "We send the Google Play invite link from barkoffapp@gmail.com."),
+        stepItem("Accept and install", "Open the link, accept the test, then install BarkOff from Google Play."),
+      );
+      box.append(steps);
       const row = el("div", { class: "cta-row" });
       row.append(el("a", { class: "btn btn-ghost", href: "#features", text: "Explore the features" }));
       const ig = el("a", { class: "btn btn-ghost", href: "https://www.instagram.com/barkoff.app", target: "_blank", rel: "noopener" });
@@ -3001,13 +3001,6 @@ a.contact-card:hover { border-color: var(--amber); transform: translateY(-2px); 
       box.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     },
   });
-  viewHooks.beta = () => {
-    if (pendingPlatform) {
-      const r = document.getElementById(pendingPlatform === "ios" ? "beta-ios" : "beta-android");
-      if (r) r.checked = true;
-      pendingPlatform = null;
-    }
-  };
 
   // Contact
   const contactForm = $("#contact-form");

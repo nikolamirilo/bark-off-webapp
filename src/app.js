@@ -187,7 +187,6 @@
   const TITLES = { home: "BarkOff", features: "Features | BarkOff", download: "Download | BarkOff", beta: "Testing group | BarkOff", contact: "Contact | BarkOff", privacy: "Privacy | BarkOff", notfound: "Not found | BarkOff" };
   let currentView = "home";
   let lastToken = null;
-  let pendingPlatform = null;
   const viewHooks = {};
 
   function resolve(t) {
@@ -249,7 +248,6 @@
       if (target) target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
       return;
     }
-    if (a.dataset.platform) pendingPlatform = a.dataset.platform;
     show(href.slice(1));
   });
 
@@ -1014,8 +1012,13 @@
       const ua = navigator.userAgent || "";
       const isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
       const isAndroid = /Android/i.test(ua);
-      const card = isAndroid ? $("#pf-android") : isIOS ? $("#pf-ios") : null;
-      if (card) { card.classList.add("is-you"); card.querySelector(".you-tag").hidden = false; }
+      if (isAndroid) {
+        const card = $("#pf-apk");
+        card.classList.add("is-you");
+        card.querySelector(".you-tag").hidden = false;
+      } else if (isIOS) {
+        $("#ios-note").hidden = false;
+      }
     };
   })();
 
@@ -1110,23 +1113,15 @@
       const name = (d.name || "").trim(), email = (d.email || "").trim(), dog = (d.dog || "").trim();
       box.replaceChildren();
       box.append(burst());
-      if (d.platform === "ios") {
-        box.append(el("h2", { text: `You are on the list, ${name}.` }));
-        box.append(el("p", { text: `We will email ${email} as soon as iPhone testing opens${dog ? `, so ${dog} can join in` : ""}.` }));
-        const steps = el("ol", { class: "next-steps" });
-        steps.append(stepItem("Watch your inbox", "Your invite comes from barkoffapp@gmail.com."), stepItem("Follow along", "We share progress on Instagram and TikTok."));
-        box.append(steps);
-      } else {
-        box.append(el("h2", { text: `You are in, ${name}.` }));
-        box.append(el("p", { text: dog ? `Here is what happens next for you and ${dog}.` : "Here is what happens next." }));
-        const steps = el("ol", { class: "next-steps" });
-        steps.append(
-          stepItem("We add you to the tester list", `Using your Google Play email, ${email}.`),
-          stepItem("Watch your inbox", "We send the Google Play invite link from barkoffapp@gmail.com."),
-          stepItem("Accept and install", "Open the link, accept the test, then install BarkOff from Google Play."),
-        );
-        box.append(steps);
-      }
+      box.append(el("h2", { text: `You are in, ${name}.` }));
+      box.append(el("p", { text: dog ? `Here is what happens next for you and ${dog}.` : "Here is what happens next." }));
+      const steps = el("ol", { class: "next-steps" });
+      steps.append(
+        stepItem("We add you to the tester list", `Using your Google Play email, ${email}.`),
+        stepItem("Watch your inbox", "We send the Google Play invite link from barkoffapp@gmail.com."),
+        stepItem("Accept and install", "Open the link, accept the test, then install BarkOff from Google Play."),
+      );
+      box.append(steps);
       const row = el("div", { class: "cta-row" });
       row.append(el("a", { class: "btn btn-ghost", href: "#features", text: "Explore the features" }));
       const ig = el("a", { class: "btn btn-ghost", href: "https://www.instagram.com/barkoff.app", target: "_blank", rel: "noopener" });
@@ -1139,13 +1134,6 @@
       box.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     },
   });
-  viewHooks.beta = () => {
-    if (pendingPlatform) {
-      const r = document.getElementById(pendingPlatform === "ios" ? "beta-ios" : "beta-android");
-      if (r) r.checked = true;
-      pendingPlatform = null;
-    }
-  };
 
   // Contact
   const contactForm = $("#contact-form");

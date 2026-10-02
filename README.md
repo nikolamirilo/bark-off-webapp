@@ -4,8 +4,8 @@ Marketing site for the [BarkOff](https://github.com/nikolamirilo/bark-off) app. 
 
 - **Landing page** with an animated hero and the **Bark Lab**, a live demo that runs the app's own bark detection rules on simulated sounds
 - **Features** with a closer look at detection, the two messages, calibration, cooldown and reports
-- **Download** with the Google Play link, a QR code for desktop visitors and the iPhone waitlist
-- **Testing group** signup with the next steps for testers
+- **Download** with a direct APK download, install steps and a QR code for computer visitors. Google Play is shown as coming soon
+- **Testing group** signup for the Google Play test, with the next steps for testers
 - **Contact** form plus email, Instagram and TikTok
 - **Privacy notes** (draft)
 
@@ -39,9 +39,25 @@ python3 -m http.server 8080
 # then open http://localhost:8080/index.html
 ```
 
+## Publishing a new APK
+
+The **Download APK** button and the QR code both point to:
+
+```
+https://github.com/nikolamirilo/bark-off/releases/latest/download/barkoff.apk
+```
+
+GitHub always serves this file from the newest release of the app repo, so the site does not change when you ship a new version.
+
+1. Build the APK in the app repo: `eas build -p android --profile preview`
+2. Download the `.apk` from the EAS build page and rename it to `barkoff.apk`.
+3. On [nikolamirilo/bark-off](https://github.com/nikolamirilo/bark-off/releases/new), create a release (for example `v1.0.0`) and attach `barkoff.apk`.
+
+Until the first release exists, the button opens a GitHub "not found" page.
+
 ## Before going live
 
+- Publish the first APK release (see above).
 - Connect the contact and testing group forms to a mailbox or form service.
-- Replace the hand-drawn Google Play and App Store badges with the official ones.
-- The Google Play link points to `com.reactifysolutions.barkoff`. While the app is in closed testing it only opens for testers.
+- Swap the hand-drawn "Coming soon to Google Play" badge for the official badge once the app is on Google Play.
 - Have the privacy notes reviewed.
