@@ -705,6 +705,14 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
 .store-badge small { font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .85; }
 .store-badge b { font-size: 1.32rem; font-weight: 700; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; letter-spacing: -.01em; }
 .store-badge.off { opacity: .5; cursor: not-allowed; pointer-events: none; }
+.btn-lg { min-height: 58px; padding: 14px 30px; font-size: 1.08rem; }
+.btn-lg .icon { width: 20px; height: 20px; }
+.apk-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.apk-meta .status { margin-top: 0; }
+.apk-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.apk-cta .faint { font-size: .88rem; font-weight: 700; }
+.mini-title { font-family: var(--font-body); font-size: .78rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 10px; }
+.ios-note { margin-bottom: 20px; }
 .notice { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; padding: 14px 16px; border-radius: var(--r-m); background: rgba(247, 156, 35, .08); border: 1px solid rgba(247, 156, 35, .3); color: var(--muted); font-size: .94rem; }
 .notice .icon { width: 20px; height: 20px; color: var(--amber-hi); margin-top: 2px; }
 .notice b { color: var(--cream); }
@@ -749,7 +757,6 @@ input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; border-radius
 .input:focus, .select:focus, .textarea:focus { outline: none; border-color: var(--amber); box-shadow: 0 0 0 4px rgba(247, 156, 35, .2); background: #1d1c2f; }
 .input[aria-invalid="true"], .textarea[aria-invalid="true"] { border-color: var(--error); }
 fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
-.choice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .choice { position: relative; }
 .choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
 .choice > span { display: flex; align-items: center; gap: 10px; padding: 13px 14px; border-radius: 14px; border: 1.5px solid var(--line-2); background: var(--night-2); font-weight: 800; transition: all .2s; height: 100%; }
