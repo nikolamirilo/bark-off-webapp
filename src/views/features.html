@@ -1,0 +1,170 @@
+<div class="view" data-view="features" hidden>
+  <section class="page-hero" aria-labelledby="features-title">
+    <div class="wrap">
+      <span class="eyebrow">Features</span>
+      <h1 class="display" id="features-title" tabindex="-1">Everything BarkOff does while you are out.</h1>
+      <p class="lede">A spare phone, your voice, and a listener that knows a bark from a door click. Here is how each part works.</p>
+      <nav class="jump" aria-label="Features on this page">
+        <a href="#f-detect" data-jump>Smart detection</a>
+        <a href="#f-levels" data-jump>Two messages</a>
+        <a href="#f-calibrate" data-jump>Calibration</a>
+        <a href="#f-cooldown" data-jump>Cooldown</a>
+        <a href="#f-reports" data-jump>Reports</a>
+        <a href="#f-home" data-jump>Made to stay home</a>
+        <a href="#f-specs" data-jump>Specs</a>
+      </nav>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="feature-row stacked" id="f-detect" aria-labelledby="f-detect-title">
+      <div class="feature-copy">
+        <span class="eyebrow">Smart detection</span>
+        <h2 class="title-s" id="f-detect-title">It knows a bark from the rest of the house.</h2>
+        <p>A simple volume limit is either too deaf in a quiet bedroom or always going off next to a TV. BarkOff measures the room first, then looks at the shape of each sound.</p>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Checks the sound 20 times a second</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Learns your room's normal noise level and keeps adjusting it</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Needs a sharp rise and at least 0.15 seconds of sound</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Starts your message while your dog is still barking</span></li>
+        </ul>
+      </div>
+      <div class="feature-art">
+        <div class="multiples" id="multiples"></div>
+        <p class="faint" style="font-size:.82rem;margin-top:12px">Each chart shows loudness over two seconds. The dashed line is the trigger, 14 dB above the room.</p>
+      </div>
+    </section>
+
+    <section class="feature-row flip" id="f-levels" aria-labelledby="f-levels-title">
+      <div class="feature-copy">
+        <span class="eyebrow">Two levels, two messages</span>
+        <h2 class="title-s" id="f-levels-title">A soft voice for whining. A firm one for barking.</h2>
+        <p>BarkOff sorts every bark into one of two levels and plays the message you recorded for it. A good rule: make the first one soothing and the second one calm but firm.</p>
+      </div>
+      <div class="feature-art">
+        <div class="level-cards">
+          <div class="level-card">
+            <span class="lv"><i style="background:var(--soft)"></i>Soft bark</span>
+            <small>Whining, grumbles, small woofs</small>
+            <blockquote>"Hey Max, it is okay. I will be home soon."</blockquote>
+          </div>
+          <div class="level-card">
+            <span class="lv"><i style="background:var(--big)"></i>Big bark</span>
+            <small>Loud, full barking</small>
+            <blockquote>"Max, quiet now. Good dog."</blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-row" id="f-calibrate" aria-labelledby="f-calibrate-title">
+      <div class="feature-copy">
+        <span class="eyebrow">Calibration</span>
+        <h2 class="title-s" id="f-calibrate-title">Set the level by barking at your phone.</h2>
+        <p>Not sure where to put the slider? Let BarkOff measure it. One short test gives it both the quiet room and a bark to compare.</p>
+        <p>Hold the phone where it will sit during the day, at the same distance from your dog.</p>
+      </div>
+      <div class="feature-art">
+        <ol class="calib-steps">
+          <li><div><b>Stay quiet</b><span>BarkOff listens to the room for a moment.</span></div></li>
+          <li><div><b>Bark once</b><span>Or let your dog do it. Your best impression works too.</span></div></li>
+          <li><div><b>Done</b><span>The level is set just below that bark, with a little headroom.</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="feature-row flip" id="f-cooldown" aria-labelledby="f-cooldown-title">
+      <div class="feature-copy">
+        <span class="eyebrow">Cooldown</span>
+        <h2 class="title-s" id="f-cooldown-title">Room to settle between messages.</h2>
+        <p>After a message plays, BarkOff waits before it plays another. Barks during that time still show up in your report.</p>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Choose 5, 10, 15, 20 or 30 seconds</span></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Always longer than your longest message, so they never overlap</span></li>
+        </ul>
+      </div>
+      <div class="feature-art">
+        <div class="cd">
+          <div class="cd-track" role="img" aria-label="A 15 second cooldown. The first bark plays a 4 second message. Barks at 7 and 11 seconds are logged without a message.">
+            <span class="cd-play" style="--w:26.6%"></span>
+            <i class="cd-bark" style="--x:2%"></i>
+            <i class="cd-bark" style="--x:46.6%"></i>
+            <i class="cd-bark" style="--x:73.3%"></i>
+          </div>
+          <div class="cd-scale num" aria-hidden="true"><span>0 s</span><span>5 s</span><span>10 s</span><span>15 s</span></div>
+          <ul class="cd-legend">
+            <li><i class="k-bark"></i>A bark</li>
+            <li><i class="k-play"></i>Your message plays, 4 seconds</li>
+            <li><i class="k-wait"></i>Cooldown, later barks are logged without a message</li>
+          </ul>
+          <div class="cool-chips num" aria-label="Cooldown options, 15 seconds selected"><span>5 s</span><span>10 s</span><span class="on">15 s</span><span>20 s</span><span>30 s</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-row" id="f-reports" aria-labelledby="f-reports-title">
+      <div class="feature-copy">
+        <span class="eyebrow">Reports</span>
+        <h2 class="title-s" id="f-reports-title">Know how the day went.</h2>
+        <p>Every session with barking ends with a report, and your weekly summary adds them up.</p>
+      </div>
+      <div class="feature-art">
+        <ul class="checklist">
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-timer"/></svg></span><div><b>Timeline</b><span>When the barking happened during the session</span></div></li>
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg></span><div><b>Loudness</b><span>Average and loudest bark, measured against the room</span></div></li>
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span><div><b>Room noise</b><span>From "very quiet room" to "very noisy room"</span></div></li>
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-chart"/></svg></span><div><b>Progress</b><span>More or fewer woofs than last time, plus a weekly total</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-row flip" id="f-home" aria-labelledby="f-home-title">
+      <div class="feature-copy">
+        <span class="eyebrow">Made to stay home</span>
+        <h2 class="title-s" id="f-home-title">Built to be left alone with your dog.</h2>
+        <p>BarkOff keeps the screen awake while it listens, and shows a short checklist before every session. Add your dog's name and photo to make the app theirs.</p>
+        <div class="profile-demo" aria-hidden="true">
+          <img src="assets/mascot-head.webp" alt="" width="160" height="160">
+          <div><b>Hi, Max!</b><small>I am your digital com-paw-nion</small></div>
+        </div>
+      </div>
+      <div class="feature-art">
+        <ul class="checklist">
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-volume"/></svg></span><div><b>Sound on, volume up</b><span>So your dog can hear you</span></div></li>
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg></span><div><b>Auto-lock off</b><span>So the phone keeps listening</span></div></li>
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-dog"/></svg></span><div><b>Near your dog</b><span>Where they spend most of their time</span></div></li>
+          <li><span class="ico-tile"><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg></span><div><b>Plugged in</b><span>Recommended for long sessions</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="feature-row" id="f-specs" aria-labelledby="f-specs-title" style="display:block">
+      <div class="feature-copy" style="margin-bottom:22px">
+        <span class="eyebrow">Specs</span>
+        <h2 class="title-s" id="f-specs-title">The details.</h2>
+      </div>
+      <div class="table-scroll">
+        <table class="spec">
+          <tbody>
+            <tr><th scope="row">Android</th><td>Android 7.1 or newer<small>Early access through the testing group</small></td></tr>
+            <tr><th scope="row">iPhone</th><td>Coming soon</td></tr>
+            <tr><th scope="row">Permissions</th><td>Microphone<small>Used only during a session or calibration</small></td></tr>
+            <tr><th scope="row">Where data lives</th><td>On your phone<small>Voice clips, pet profile and reports</small></td></tr>
+            <tr><th scope="row">Price</th><td>Free during early access</td></tr>
+            <tr><th scope="row">Language</th><td>English</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="section final" aria-labelledby="features-final">
+    <div class="wrap">
+      <h2 class="title" id="features-final">See it work with your own dog.</h2>
+      <div class="cta-row" style="justify-content:center">
+        <a class="btn btn-amber" href="#download">Get the app<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#lab">Try the Bark Lab</a>
+      </div>
+    </div>
+  </section>
+</div>
