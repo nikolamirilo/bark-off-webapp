@@ -12,6 +12,8 @@
 .field .hint { color: var(--faint); font-size: .84rem; line-height: 1.4; }
 .field .err { color: var(--error); font-size: .84rem; font-weight: 800; display: flex; gap: 6px; align-items: center; }
 .field .err .icon { width: 15px; height: 15px; }
+.form-error { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 14px; border: 1.5px solid var(--error); background: rgba(255, 138, 122, .1); color: var(--error); font-size: .88rem; font-weight: 700; line-height: 1.45; }
+.form-error .icon { width: 18px; height: 18px; margin-top: 1px; flex: none; }
 .row2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: end; }
 @media (max-width: 560px) { .row2 { grid-template-columns: minmax(0, 1fr); } }
 .input, .select, .textarea {
@@ -27,13 +29,15 @@
 fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .choice { position: relative; }
 .choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
-.choice > span { display: flex; align-items: center; gap: 10px; padding: 13px 14px; border-radius: 14px; border: 1.5px solid var(--line-2); background: var(--night-2); font-weight: 800; transition: all .2s; height: 100%; }
+.choice > span { display: flex; align-items: center; gap: 10px; padding: 13px 14px; border-radius: 14px; border: 1.5px solid var(--line-2); background: var(--night-2); font-weight: 800; transition: all .2s; }
 .choice > span .icon { width: 22px; height: 22px; color: var(--faint); }
 .choice span small { display: block; font-weight: 700; color: var(--faint); font-size: .78rem; }
 .choice input:checked + span { border-color: var(--amber); background: rgba(247, 156, 35, .1); }
 .choice input:checked + span .icon { color: var(--amber-hi); }
 .choice input:focus-visible + span { outline: 3px solid var(--amber-hi); outline-offset: 2px; }
-.topic-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+/* align-items, because the input covers the whole label: a label stretched taller than its
+   pill would be clickable empty space beside it. */
+.topic-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: start; }
 .topic-chips .choice > span { padding: 9px 14px; border-radius: 999px; font-size: .9rem; }
 .check { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; align-items: start; font-size: .92rem; color: var(--muted); cursor: pointer; }
 .check input { width: 22px; height: 22px; margin: 1px 0 0; accent-color: var(--amber); cursor: pointer; }
@@ -55,8 +59,14 @@ fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
 .next-steps li::before { counter-increment: n; content: counter(n); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--amber-hi); font-weight: 900; }
 .next-steps b { display: block; }
 .next-steps span { color: var(--muted); font-size: .93rem; }
-.proto-note { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border-radius: 12px; border: 1px dashed var(--line-2); color: var(--faint); font-size: .84rem; width: 100%; }
-.proto-note .icon { width: 17px; height: 17px; margin-top: 2px; }
+.alt-route { display: grid; gap: 10px; justify-items: start; margin-top: 26px; }
+.alt-route h3 { font-size: 1.05rem; }
+.alt-route p { color: var(--muted); font-size: .94rem; }
+.alt-route .fine { color: var(--faint); font-size: .82rem; }
+.alt-sep { display: flex; align-items: center; gap: 12px; width: 100%; color: var(--faint); font-size: .76rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 4px; }
+.alt-sep::before, .alt-sep::after { content: ""; flex: 1; height: 1px; background: var(--line-2); }
+.sent-note { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border-radius: 12px; border: 1px solid var(--line-2); color: var(--faint); font-size: .84rem; width: 100%; }
+.sent-note .icon { width: 17px; height: 17px; margin-top: 2px; flex: none; color: var(--amber-hi); }
 .info-col { display: grid; gap: 28px; min-width: 0; }
 .info-block { display: grid; gap: 14px; }
 .info-block h2 { font-size: 1.35rem; }

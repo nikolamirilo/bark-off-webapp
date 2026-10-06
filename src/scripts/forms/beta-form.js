@@ -1,10 +1,16 @@
-// Testing group signup.
+// Testing group signup. Posts to /api/beta, which emails the signup to barkoffapp@gmail.com
+// and sends the person a confirmation. The success screen only renders once that lands.
 import { $, el, icon } from "../core/dom.js";
 import { reduceMotion } from "../core/motion.js";
 import { EMAIL_RE, wireForm } from "./validation.js";
-import { burst, protoNote, stepItem } from "./success-parts.js";
+import { postForm } from "./submit.js";
+import { burst, sentNote, stepItem } from "./success-parts.js";
 
 export function initBetaForm() {
+  // What the server said about the last submit. onSuccess runs straight after submit
+  // resolves, so this is always the reply to the signup being rendered.
+  let sent = null;
+
   wireForm({
     form: $("#beta-form"),
     submitLabel: "Join the testing group",
@@ -16,6 +22,9 @@ export function initBetaForm() {
       else if (!EMAIL_RE.test(email.value.trim())) errs.push({ input: email, msg: "Enter an email like name@gmail.com." });
       if (!consent.checked) errs.push({ input: consent, msg: "Tick the box so we can email you the invite." });
       return errs;
+    },
+    async submit(d) {
+      sent = await postForm("/api/beta", d);
     },
     onSuccess(d) {
       const box = $("#beta-success");
@@ -36,7 +45,10 @@ export function initBetaForm() {
       const ig = el("a", { class: "btn btn-ghost", href: "https://www.instagram.com/barkoff.app", target: "_blank", rel: "noopener" });
       ig.append(icon("i-instagram"), document.createTextNode("Follow on Instagram"));
       row.append(ig);
-      box.append(row, protoNote());
+      box.append(row);
+      // Only promise the confirmation when one actually went out. The signup itself is safe
+      // either way: it is the notification email that records it, and that one succeeded.
+      if (sent?.confirmationSent) box.append(sentNote(email));
       $("#beta-form-wrap").hidden = true;
       box.hidden = false;
       box.focus();

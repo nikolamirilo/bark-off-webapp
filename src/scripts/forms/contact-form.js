@@ -1,8 +1,10 @@
 // Contact form: a live character counter, a hint that follows the chosen topic, and the
-// success screen.
+// success screen. Posts to /api/contact, which emails the message to barkoffapp@gmail.com
+// with reply-to set to the sender. The success screen only renders once that lands.
 import { $, el } from "../core/dom.js";
 import { EMAIL_RE, wireForm } from "./validation.js";
-import { burst, protoNote } from "./success-parts.js";
+import { postForm } from "./submit.js";
+import { burst } from "./success-parts.js";
 
 const MAX_LENGTH = 1000;
 const HINTS = {
@@ -33,6 +35,9 @@ export function initContactForm() {
       if (message.value.trim().length < 10) errs.push({ input: message, msg: "Write a little more, at least 10 characters." });
       return errs;
     },
+    async submit(d) {
+      await postForm("/api/contact", d);
+    },
     onSuccess(d) {
       const box = $("#contact-success");
       box.replaceChildren(
@@ -49,10 +54,7 @@ export function initContactForm() {
         $("#contact-form-wrap").hidden = false;
         $("#contact-name").focus();
       });
-      box.append(
-        el("div", { class: "cta-row" }, [again, el("a", { class: "btn btn-ghost", href: "#home", text: "Back to home" })]),
-        protoNote(),
-      );
+      box.append(el("div", { class: "cta-row" }, [again, el("a", { class: "btn btn-ghost", href: "#home", text: "Back to home" })]));
       $("#contact-form-wrap").hidden = true;
       box.hidden = false;
       box.focus();

@@ -24,6 +24,16 @@ import { ROUTES } from "./src/scripts/app/routes.js";
 // when the domain changes. It has to be absolute: a canonical or og:url cannot be relative.
 const ORIGIN = "https://barkoff.app";
 
+// The app's Google Play identity, in one place, the same way ORIGIN is. The views reach it
+// through %PLAY_TEST% and %PLAY_STORE%.
+//
+// The pages link to %PLAY_STORE%, the public listing. %PLAY_TEST% is the tester opt-in page,
+// kept here because it is the link that works while a track is still closed: a store listing
+// answers 404 to anyone outside the test until the app is public.
+const PLAY_PACKAGE = "com.reactifysolutions.barkoff";
+const PLAY_TEST = `https://play.google.com/apps/testing/${PLAY_PACKAGE}`;
+const PLAY_STORE = `https://play.google.com/store/apps/details?id=${PLAY_PACKAGE}`;
+
 const src = (p) => new URL(`./src/${p}`, import.meta.url);
 const out = (p) => new URL(`./dist/${p}`, import.meta.url);
 const read = (p) => readFileSync(src(p), "utf8");
@@ -83,13 +93,18 @@ const include = (html) => html.replace(/<!--@include (\S+)-->/g, (_, file) => re
 // at the site root. The router rewrites the same tags on every navigation.
 const fill = (html) => html
   .replaceAll("%ORIGIN%", ORIGIN)
+  .replaceAll("%PLAY_TEST%", PLAY_TEST)
+  .replaceAll("%PLAY_STORE%", PLAY_STORE)
   .replaceAll("%TITLE%", escapeAttr(ROUTES.home.title))
   .replaceAll("%DESCRIPTION%", escapeAttr(ROUTES.home.description));
 
 const page = fill(include(include(read("page.html"))));
 
 if (/<!--@include/.test(page)) throw new Error("Unresolved include in index.html");
-if (/%(ORIGIN|TITLE|DESCRIPTION)%/.test(page)) throw new Error("Unresolved placeholder in index.html");
+// Any %NAME% left standing, not just the ones fill() knows, so a typo in a view is caught
+// here rather than shipped as literal text.
+const leftover = page.match(/%[A-Z][A-Z_]{2,}%/);
+if (leftover) throw new Error(`Unresolved placeholder ${leftover[0]} in index.html`);
 if (/\sstyle="/.test(page)) throw new Error("Inline style attribute in the HTML: move it to src/styles/");
 // Inline CSS and JS stay banned, but structured data has to be in the document: a crawler
 // reads the HTML it is served, and will not run the module graph to find it.

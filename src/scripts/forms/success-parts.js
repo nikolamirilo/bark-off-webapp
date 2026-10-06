@@ -3,9 +3,10 @@ import { el, icon, svgEl } from "../core/dom.js";
 
 const PAW_VIEWBOX = "0 0 48.839 48.839"; // the paw symbol is not on the 24x24 icon grid
 
-export const protoNote = () => {
-  const p = el("p", { class: "proto-note" });
-  p.append(icon("i-info"), el("span", { text: "This is a prototype, so nothing was sent. On the live site this goes to barkoffapp@gmail.com." }));
+// The confirmation is already on its way as this renders.
+export const sentNote = (email) => {
+  const p = el("p", { class: "sent-note" });
+  p.append(icon("i-mail"), el("span", { text: `A confirmation is on its way to ${email}. If it has not arrived in a few minutes, look in your spam folder.` }));
   return p;
 };
 
