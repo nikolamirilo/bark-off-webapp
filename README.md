@@ -14,7 +14,7 @@ This branch holds the interactive prototype for review. The forms validate and s
 ## Structure
 
 Everything under `src/` is the site. Everything under `dist/` is the build, and `dist/` is
-the only thing published — it is rebuilt from scratch on every run and is not committed.
+the only thing published - it is rebuilt from scratch on every run and is not committed.
 
 ```
 src/        the site:  page.html, views/, styles/, scripts/, assets/, static/
@@ -56,7 +56,7 @@ CSS, JavaScript and markup are separate files all the way down. No HTML file car
 itself, so the files ship exactly as written. CSS is concatenated because its order *is* the
 cascade, and one request beats twenty.
 
-Every path in the built HTML is relative, so `dist/` is position-independent — it serves the
+Every path in the built HTML is relative, so `dist/` is position-independent - it serves the
 same from a domain root, a subdirectory or a preview URL.
 
 ### The modules

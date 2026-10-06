@@ -9,7 +9,7 @@
 export const ROUTES = {
   home: {
     path: "",
-    title: "BarkOff — dog separation anxiety and bark control",
+    title: "BarkOff - dog separation anxiety and bark control",
     description:
       "Does your dog bark or whine when left alone? BarkOff listens while you are out and plays your own recorded voice the moment it starts. Free on Android.",
     priority: "1.0",
