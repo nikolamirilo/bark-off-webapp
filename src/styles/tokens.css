@@ -1,0 +1,53 @@
+/* Layout: one dark "home at night" page. The app's own light screens (phone, report) are the light sources,
+   with a warm lamp glow behind them. Content column 1160px, gutters never below 16px. */
+:root {
+  /* Night (page) */
+  --night: #13121f;
+  --night-2: #191828;
+  --surface: #222136;
+  --surface-2: #2b2a43;
+  --line: #34324d;
+  --line-2: #4a4766;
+  --cream: #fff4e4;
+  --muted: #bdb5cc;
+  --faint: #938ca8;
+  /* Brand (from the app's Colors.ts) */
+  --amber: #f79c23;
+  --amber-hi: #ffb76b;
+  --amber-lo: #e67835;
+  --amber-ink: #2a1704;
+  --honey: #e8a048;
+  /* Bark levels, validated for the dark surface */
+  --soft: #42ad6f;
+  --big: #d44434;
+  /* App UI (light screens inside the page) */
+  --paper: #fff9f0;
+  --paper-card: #ffffff;
+  --ink: #3d2914;
+  --ink-2: #7d6b5d;
+  --ink-3: #a3958a;
+  --paper-line: #e8e0d5;
+  --soft-l: #1f8f55;
+  --big-l: #e8533f;
+  --warn-l: #f2c94c;
+  --scope: #161526;
+  /* Feedback on dark */
+  --error: #ff8a7a;
+  --success: #7fd9a3;
+
+  --font-display: "Fredoka", ui-rounded, "Nunito", system-ui, sans-serif;
+  --font-body: "Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+
+  --paw-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48.839 48.839'><path d='M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742c0,0,3.881-6.445,7.244-9.477c2.43-2.188,5.973-2.18,5.973-2.18h1.093v-0.001c0,0,3.698-0.009,5.976,2.181C35.059,30.51,39.041,36.844,39.041,36.843z M16.631,20.878c3.7,0,6.699-4.674,6.699-10.439S20.331,0,16.631,0S9.932,4.674,9.932,10.439S12.931,20.878,16.631,20.878z M10.211,30.988c2.727-1.259,3.349-5.723,1.388-9.971s-5.761-6.672-8.488-5.414s-3.348,5.723-1.388,9.971C3.684,29.822,7.484,32.245,10.211,30.988z M32.206,20.878c3.7,0,6.7-4.674,6.7-10.439S35.906,0,32.206,0s-6.699,4.674-6.699,10.439C25.507,16.204,28.506,20.878,32.206,20.878z M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414S48.455,16.861,45.727,15.602z'/></svg>");
+  --container: 1160px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --r-s: 10px;
+  --r-m: 16px;
+  --r-l: 24px;
+  --r-xl: 34px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --shadow-deep: 0 30px 80px -30px rgba(0, 0, 0, .75);
+  color-scheme: dark;
+}
+

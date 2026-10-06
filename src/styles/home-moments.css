@@ -1,0 +1,27 @@
+/* Home: the "moments" ticker and the "why it helps" band. */
+.moments { border-block: 1px solid var(--line); background: var(--night-2); }
+.moments-line { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 22px; padding-block: 20px; margin: 0 auto; font-family: var(--font-display); font-weight: 500; font-size: clamp(1.05rem, .95rem + .5vw, 1.3rem); color: var(--muted); text-align: center; }
+.moments-line b { font-family: var(--font-body); font-weight: 900; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.moments-line span { display: inline-flex; align-items: center; gap: 22px; }
+.moments-line span + span::before { content: ""; width: 14px; height: 14px; background: var(--amber); opacity: .7; -webkit-mask: var(--paw-mask) center / contain no-repeat; mask: var(--paw-mask) center / contain no-repeat; }
+
+/* The "who it helps" band: six audiences in two even rows, then the honest note under it.
+   The 300px floor is what keeps it at three columns inside .wrap rather than four. */
+.who-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.who-note { margin-top: 18px; }
+
+/* ---------- Why section ---------- */
+.why-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(32px, 6vw, 88px); align-items: center; }
+.why-art { position: relative; display: grid; place-items: center; }
+.why-art::before { content: ""; position: absolute; width: 88%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(232, 160, 72, .22), rgba(232, 160, 72, 0) 68%); }
+.why-art img { position: relative; width: min(100%, 520px); }
+.why-art .hand { position: absolute; right: 4%; bottom: 2%; transform: rotate(-4deg); }
+.why-copy { display: grid; gap: 22px; min-width: 0; }
+.why-points { display: grid; gap: 18px; margin-top: 10px; }
+.why-point { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 16px; align-items: start; }
+.why-point h3 { font-size: 1.15rem; margin-bottom: 2px; }
+.why-point p { color: var(--muted); }
+.ico-tile { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(247, 156, 35, .12); color: var(--amber-hi); border: 1px solid rgba(247, 156, 35, .28); }
+.ico-tile .icon { width: 22px; height: 22px; }
+@media (max-width: 860px) { .why-grid { grid-template-columns: minmax(0, 1fr); } .why-art { order: 2; } }
+

@@ -1,0 +1,10 @@
+{
+  "name": "barkoff-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "icons": "node tools/make-icons.mjs",
+    "serve": "node build.mjs && node tools/serve.mjs"
+  }
+}

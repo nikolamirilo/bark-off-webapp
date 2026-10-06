@@ -1,0 +1,47 @@
+/* Download page: platform cards, install steps and the QR row. */
+.platforms { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 900px) { .platforms { grid-template-columns: minmax(0, 1fr); } }
+.platform { position: relative; border-radius: var(--r-xl); padding: clamp(22px, 3.4vw, 34px); background: var(--surface); border: 1px solid var(--line); display: grid; gap: 20px; align-content: start; min-width: 0; }
+.platform.is-you { border-color: var(--amber); box-shadow: 0 0 0 4px rgba(247, 156, 35, .15); }
+.you-tag { position: absolute; top: -13px; left: 26px; background: var(--amber); color: var(--amber-ink); font-weight: 900; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+.platform-head { display: flex; align-items: center; gap: 16px; }
+.platform-head img { width: 72px; height: 72px; border-radius: 18px; box-shadow: 0 8px 20px -8px rgba(0, 0, 0, .7); }
+.platform-head h2 { font-size: 1.45rem; }
+.status { display: inline-flex; align-items: center; gap: 7px; font-size: .8rem; font-weight: 900; letter-spacing: .04em; padding: 4px 10px; border-radius: 999px; margin-top: 6px; }
+.status.early { background: rgba(66, 173, 111, .15); color: var(--success); }
+.status.soon { background: var(--surface-2); color: var(--muted); }
+.store-badge { display: inline-flex; align-items: center; gap: 12px; padding: 10px 20px 10px 16px; border-radius: 14px; background: #000; color: #fff; border: 1.5px solid #6b6880; text-decoration: none; min-height: 60px; transition: transform .18s var(--ease), border-color .2s; }
+.store-badge:hover { transform: translateY(-2px); border-color: #fff; }
+.store-badge svg { width: 30px; height: 30px; flex: none; }
+.store-badge span { display: grid; line-height: 1.1; }
+.store-badge small { font-size: .7rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; opacity: .85; }
+.store-badge b { font-size: 1.32rem; font-weight: 700; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; letter-spacing: -.01em; }
+.store-badge.off { opacity: .5; cursor: not-allowed; pointer-events: none; }
+.btn-lg { min-height: 58px; padding: 14px 30px; font-size: 1.08rem; }
+.btn-lg .icon { width: 20px; height: 20px; }
+.apk-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.apk-meta .status { margin-top: 0; }
+.apk-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.apk-cta .faint { font-size: .88rem; font-weight: 700; }
+.mini-title { font-family: var(--font-body); font-size: .78rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 10px; }
+.ios-note { margin-bottom: 20px; }
+.notice { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; padding: 14px 16px; border-radius: var(--r-m); background: rgba(247, 156, 35, .08); border: 1px solid rgba(247, 156, 35, .3); color: var(--muted); font-size: .94rem; }
+.notice .icon { width: 20px; height: 20px; color: var(--amber-hi); margin-top: 2px; }
+.notice b { color: var(--cream); }
+.dl-flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; counter-reset: f; }
+.dl-flow li { padding: 14px; border-radius: var(--r-m); background: var(--night-2); border: 1px solid var(--line); font-weight: 700; font-size: .9rem; display: grid; gap: 6px; align-content: start; }
+.dl-flow li::before { counter-increment: f; content: counter(f); width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); color: var(--amber-hi); font-weight: 900; font-size: .85rem; }
+.dl-flow small { display: block; color: var(--faint); font-weight: 600; }
+@media (max-width: 560px) { .dl-flow { grid-template-columns: minmax(0, 1fr); } }
+.qr-row { display: flex; align-items: center; gap: 18px; padding: 14px; border-radius: var(--r-m); background: var(--night-2); border: 1px solid var(--line); }
+.qr { width: 112px; height: 112px; padding: 9px; border-radius: 14px; background: var(--paper); flex: none; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.qr svg path:first-child { fill: var(--paper); }
+.qr svg path:last-child { stroke: var(--night); fill: none; }
+.qr-row p { color: var(--muted); font-size: .92rem; }
+.qr-row b { color: var(--cream); display: block; }
+@media (max-width: 640px) { .qr-row { display: none; } }
+
+
+/* The pre-session checklist runs full width here, so let it wrap into as many columns as fit. */
+.checklist.fluid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }

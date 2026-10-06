@@ -1,0 +1,25 @@
+/* Headings, body copy and the small text treatments. */
+h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 600; text-wrap: balance; letter-spacing: -.01em; }
+.display { font-size: clamp(2.6rem, 1.5rem + 4.4vw, 4.9rem); line-height: 1.02; letter-spacing: -.02em; }
+.title { font-size: clamp(2rem, 1.35rem + 2.6vw, 3.3rem); line-height: 1.06; }
+.title-s { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem); line-height: 1.1; }
+h3 { font-size: 1.32rem; line-height: 1.25; }
+p { margin: 0; }
+.lede { font-size: clamp(1.08rem, 1rem + .35vw, 1.25rem); color: var(--muted); max-width: 40ch; line-height: 1.55; }
+.copy { color: var(--muted); max-width: 62ch; }
+.copy + .copy { margin-top: .9em; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-body); font-weight: 800; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--amber);
+}
+.eyebrow svg { width: 15px; height: 15px; }
+.hand { font-family: var(--font-hand); font-weight: 600; color: var(--amber-hi); font-size: 1.55rem; line-height: 1; }
+.section-head { display: grid; gap: 16px; margin-bottom: clamp(36px, 5vw, 56px); max-width: 720px; }
+.section-head.center { margin-inline: auto; text-align: center; justify-items: center; }
+.section-head .lede { max-width: 56ch; }
+.muted { color: var(--muted); }
+.faint { color: var(--faint); }
+.num { font-variant-numeric: tabular-nums; }
+
+.section-head.flush { margin-bottom: 0; }

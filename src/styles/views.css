@@ -1,0 +1,11 @@
+/* Router views: the enter transition and the per-page hero. */
+.view { animation: viewIn .45s var(--ease); }
+@keyframes viewIn { from { transform: translateY(10px); } to { transform: none; } }
+.page-hero { padding-block: clamp(56px, 8vw, 104px) clamp(40px, 5vw, 64px); position: relative; overflow: hidden; }
+.page-hero .wrap { position: relative; display: grid; gap: 18px; }
+.page-hero .lede { max-width: 52ch; }
+.page-hero::before {
+  content: ""; position: absolute; width: 760px; height: 760px; right: -220px; top: -380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 156, 35, .2), rgba(247, 156, 35, 0) 65%); pointer-events: none;
+}
+

@@ -1,0 +1,51 @@
+/* Buttons, text links, pills and chips. */
+.btn {
+  --b-bg: var(--surface-2);
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 50px; padding: 12px 24px; border-radius: 999px; border: 1.5px solid transparent;
+  background: var(--b-bg); color: var(--cream);
+  font-family: var(--font-body); font-weight: 800; font-size: 1rem; line-height: 1.1; text-decoration: none; white-space: nowrap;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), background-color .18s, border-color .18s, color .18s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+.btn .icon { width: 18px; height: 18px; }
+.btn-amber {
+  background: linear-gradient(180deg, var(--amber-hi), var(--amber) 70%);
+  color: var(--amber-ink);
+  box-shadow: 0 12px 30px -12px rgba(247, 156, 35, .75), inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+.btn-amber:hover { box-shadow: 0 18px 40px -14px rgba(247, 156, 35, .9), inset 0 1px 0 rgba(255, 255, 255, .45); }
+.btn-ghost { background: transparent; border-color: var(--line-2); }
+.btn-ghost:hover { border-color: var(--amber); color: var(--amber-hi); }
+.btn-sm { min-height: 40px; padding: 8px 16px; font-size: .92rem; }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; transform: none; }
+.text-link { color: var(--amber-hi); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.text-link .icon { width: 16px; height: 16px; transition: transform .2s var(--ease); }
+.text-link:hover .icon { transform: translateX(3px); }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border-radius: 999px;
+  background: rgba(247, 156, 35, .1); border: 1px solid rgba(247, 156, 35, .35); color: var(--amber-hi);
+  font-weight: 800; font-size: .86rem; text-decoration: none; transition: background-color .2s, border-color .2s;
+}
+.pill:hover { background: rgba(247, 156, 35, .18); border-color: var(--amber); }
+.pill .icon { width: 15px; height: 15px; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--soft); box-shadow: 0 0 0 0 rgba(66, 173, 111, .7); animation: livePulse 2.2s infinite; }
+@keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(66, 173, 111, .65); } 70% { box-shadow: 0 0 0 9px rgba(66, 173, 111, 0); } 100% { box-shadow: 0 0 0 0 rgba(66, 173, 111, 0); } }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px;
+  font-size: .78rem; font-weight: 800; letter-spacing: .02em; background: var(--surface-2); color: var(--muted); border: 1px solid var(--line);
+}
+.chip .key { width: 9px; height: 9px; border-radius: 3px; }
+
+
+/* Button rows. `center` is used by the closing CTAs on home and features. */
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.cta-row.center { justify-content: center; }
+
+/* Level keys: the small colour swatch that names a bark level. */
+.chip .key.soft { background: var(--soft); }
+.chip .key.big { background: var(--big); }

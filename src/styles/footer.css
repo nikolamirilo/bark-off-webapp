@@ -1,0 +1,18 @@
+/* Site footer. */
+.site-footer { border-top: 1px solid var(--line); background: #0f0e19; padding-block: 56px 32px; }
+.footer-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr)); gap: 32px; }
+.footer-brand { display: grid; gap: 14px; align-content: start; }
+.footer-brand p { color: var(--muted); max-width: 34ch; }
+.footer-col h4 { font-family: var(--font-body); font-size: .78rem; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 12px; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.footer-col a { text-decoration: none; color: var(--muted); font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+.footer-col a:hover { color: var(--amber-hi); }
+.footer-col .icon { width: 17px; height: 17px; }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--faint); font-size: .86rem; }
+.paw-trail { display: flex; gap: 10px; color: var(--amber); opacity: .6; }
+.paw-trail svg { width: 14px; height: 14px; fill: currentColor; }
+.paw-trail svg:nth-child(odd) { transform: translateY(-5px) rotate(-12deg); }
+.paw-trail svg:nth-child(even) { transform: translateY(3px) rotate(12deg); }
+@media (max-width: 860px) { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .footer-brand { grid-column: 1 / -1; } }
+@media (max-width: 460px) { .footer-grid { grid-template-columns: minmax(0, 1fr); } }
+

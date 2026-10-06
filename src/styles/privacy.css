@@ -1,0 +1,10 @@
+/* Privacy notes page. */
+.legal { max-width: 760px; display: grid; gap: 34px; }
+.legal section { display: grid; gap: 12px; }
+.legal h2 { font-size: 1.45rem; }
+.legal p, .legal li { color: var(--muted); }
+.legal ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+.legal .draft { display: flex; gap: 10px; padding: 14px 16px; border-radius: var(--r-m); background: rgba(247, 156, 35, .08); border: 1px solid rgba(247, 156, 35, .3); color: var(--muted); font-size: .92rem; }
+.legal .draft .icon { color: var(--amber-hi); width: 20px; height: 20px; margin-top: 2px; }
+
+.legal .email { color: var(--cream); font-weight: 800; }

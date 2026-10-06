@@ -1,0 +1,4 @@
+/* 404 view. */
+.lost { text-align: center; display: grid; justify-items: center; gap: 18px; padding-block: clamp(64px, 10vw, 140px); }
+.lost img { width: min(70%, 320px); }
+

@@ -1,12 +1,44 @@
-<title>BarkOff</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- The percent-wrapped placeholders below are filled in by build.mjs from the home entry in
+     scripts/app/routes.js. They describe the home page, which is the document a crawler is
+     served at the site root; the router rewrites the same tags on every navigation. -->
+<title>%TITLE%</title>
+<meta name="description" content="%DESCRIPTION%">
+<link rel="canonical" href="%ORIGIN%/">
+<meta name="robots" content="index, follow">
+
+<meta name="theme-color" content="#13121f">
+<meta name="color-scheme" content="dark">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/icons/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="BarkOff">
+<meta name="application-name" content="BarkOff">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BarkOff">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="%TITLE%">
+<meta property="og:description" content="%DESCRIPTION%">
+<meta property="og:url" content="%ORIGIN%/">
+<meta property="og:image" content="%ORIGIN%/assets/og-image.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The BarkOff spaniel beside the words: when they bark, you answer.">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fredoka:wght@400..700&family=Nunito:wght@400..900&display=swap">
-<style>
-/*@styles*/
-</style>
+<link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="assets/mascot.webp" type="image/webp" fetchpriority="high">
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<svg class="icon-sprite" width="0" height="0" aria-hidden="true" focusable="false">
   <symbol id="i-paw" viewBox="0 0 48.839 48.839"><path d="M39.041,36.843c2.054,3.234,3.022,4.951,3.022,6.742c0,3.537-2.627,5.252-6.166,5.252c-1.56,0-2.567-0.002-5.112-1.326c0,0-1.649-1.509-5.508-1.354c-3.895-0.154-5.545,1.373-5.545,1.373c-2.545,1.323-3.516,1.309-5.074,1.309c-3.539,0-6.168-1.713-6.168-5.252c0-1.791,0.971-3.506,3.024-6.742c0,0,3.881-6.445,7.244-9.477c2.43-2.188,5.973-2.18,5.973-2.18h1.093v-0.001c0,0,3.698-0.009,5.976,2.181C35.059,30.51,39.041,36.844,39.041,36.843z M16.631,20.878c3.7,0,6.699-4.674,6.699-10.439S20.331,0,16.631,0S9.932,4.674,9.932,10.439S12.931,20.878,16.631,20.878z M10.211,30.988c2.727-1.259,3.349-5.723,1.388-9.971s-5.761-6.672-8.488-5.414s-3.348,5.723-1.388,9.971C3.684,29.822,7.484,32.245,10.211,30.988z M32.206,20.878c3.7,0,6.7-4.674,6.7-10.439S35.906,0,32.206,0s-6.699,4.674-6.699,10.439C25.507,16.204,28.506,20.878,32.206,20.878z M45.727,15.602c-2.728-1.259-6.527,1.165-8.488,5.414s-1.339,8.713,1.389,9.972c2.728,1.258,6.527-1.166,8.488-5.414S48.455,16.861,45.727,15.602z"/></symbol>
   <symbol id="i-person" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M2 24c0-6.2 4.6-9.5 10-9.5s10 3.3 10 9.5z"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
@@ -54,35 +86,35 @@
   <symbol id="i-gplay" viewBox="0 0 24 24"><path fill="#00d7fe" d="M3.7 1.9 13.4 12l-9.7 10.1c-.4-.2-.7-.7-.7-1.2V3.1c0-.5.3-1 .7-1.2z"/><path fill="#00f076" d="M3.7 1.9c.4-.2.9-.2 1.3 0l11.9 6.7-3.5 3.4z"/><path fill="#ff3a44" d="M3.7 22.1l9.7-10.1 3.5 3.4L5 22.1c-.4.2-.9.2-1.3 0z"/><path fill="#ffce00" d="m16.9 8.6 3.6 2c.9.5.9 1.8 0 2.4l-3.6 2-3.5-3.4z"/></symbol>
 </svg>
 
-<a class="skip-link" href="#home" data-skip>Skip to content</a>
+<a class="skip-link" href="#main" data-skip>Skip to content</a>
 
 <header class="site-header" id="top">
   <div class="wrap header-row">
-    <a class="brand" href="#home" aria-label="BarkOff home">
+    <a class="brand" href="." aria-label="BarkOff home">
       <img src="assets/mascot-head.webp" alt="" width="38" height="38">
       <span class="wordmark">Bark<span>Off</span></span>
     </a>
     <nav class="main-nav" aria-label="Main">
-      <a href="#how" data-nav="how">How it works</a>
-      <a href="#features" data-nav="features">Features</a>
-      <a href="#download" data-nav="download">Download</a>
-      <a href="#beta" data-nav="beta">Testing group</a>
-      <a href="#contact" data-nav="contact">Contact</a>
+      <a href=".#how" data-nav="how">How it works</a>
+      <a href="features" data-nav="features">Features</a>
+      <a href="download" data-nav="download">Download</a>
+      <a href="beta" data-nav="beta">Testing group</a>
+      <a href="contact" data-nav="contact">Contact</a>
     </nav>
-    <a class="btn btn-amber btn-sm header-cta" href="#download">Get the app</a>
+    <a class="btn btn-amber btn-sm header-cta" href="download">Get the app</a>
     <button class="menu-btn" type="button" id="menu-btn" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
       <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
     </button>
   </div>
   <div class="mobile-nav" id="mobile-nav" hidden>
     <nav class="wrap" aria-label="Mobile">
-      <a href="#home" data-nav="home">Home</a>
-      <a href="#how" data-nav="how">How it works</a>
-      <a href="#features" data-nav="features">Features</a>
-      <a href="#download" data-nav="download">Download</a>
-      <a href="#beta" data-nav="beta">Join the testing group</a>
-      <a href="#contact" data-nav="contact">Contact</a>
-      <a class="btn btn-amber" href="#download">Get the app</a>
+      <a href="." data-nav="home">Home</a>
+      <a href=".#how" data-nav="how">How it works</a>
+      <a href="features" data-nav="features">Features</a>
+      <a href="download" data-nav="download">Download</a>
+      <a href="beta" data-nav="beta">Join the testing group</a>
+      <a href="contact" data-nav="contact">Contact</a>
+      <a class="btn btn-amber" href="download">Get the app</a>
     </nav>
   </div>
 </header>
@@ -101,11 +133,11 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="#home" aria-label="BarkOff home">
+        <a class="brand" href="." aria-label="BarkOff home">
           <img src="assets/mascot-head.webp" alt="" width="38" height="38">
           <span class="wordmark">Bark<span>Off</span></span>
         </a>
-        <p>Your dog's digital com-paw-nion. It listens while you are out and answers with your voice.</p>
+        <p>Your dog's digital com-paw-nion. It listens while you are out and answers with your own voice.</p>
         <div class="paw-trail" aria-hidden="true">
           <svg viewBox="0 0 48.839 48.839"><use href="#i-paw"/></svg><svg viewBox="0 0 48.839 48.839"><use href="#i-paw"/></svg><svg viewBox="0 0 48.839 48.839"><use href="#i-paw"/></svg><svg viewBox="0 0 48.839 48.839"><use href="#i-paw"/></svg><svg viewBox="0 0 48.839 48.839"><use href="#i-paw"/></svg>
         </div>
@@ -113,16 +145,16 @@
       <div class="footer-col">
         <h4>App</h4>
         <ul>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#lab">Bark Lab</a></li>
-          <li><a href="#download">Download</a></li>
+          <li><a href=".#how">How it works</a></li>
+          <li><a href="features">Features</a></li>
+          <li><a href=".#lab">Bark Lab</a></li>
+          <li><a href="download">Download</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Community</h4>
         <ul>
-          <li><a href="#beta">Join the testing group</a></li>
+          <li><a href="beta">Join the testing group</a></li>
           <li><a href="https://www.instagram.com/barkoff.app" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg>Instagram</a></li>
           <li><a href="https://www.tiktok.com/@barkoff.app" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-tiktok"/></svg>TikTok</a></li>
         </ul>
@@ -130,9 +162,9 @@
       <div class="footer-col">
         <h4>Help</h4>
         <ul>
-          <li><a href="#contact">Contact us</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="contact">Contact us</a></li>
+          <li><a href=".#faq">FAQ</a></li>
+          <li><a href="privacy">Privacy</a></li>
           <li><a href="https://www.buymeacoffee.com/reactify.solutions" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-coffee"/></svg>Buy us a coffee</a></li>
         </ul>
       </div>
@@ -144,6 +176,140 @@
   </div>
 </footer>
 
-<script>
-/*@script*/
+<!-- Structured data for the home page, which is what a crawler is served at the site root.
+     The placeholders are filled in by build.mjs, same as the meta tags above. -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "%ORIGIN%/#website",
+        "url": "%ORIGIN%/",
+        "name": "BarkOff",
+        "description": "%DESCRIPTION%",
+        "inLanguage": "en",
+        "publisher": {
+          "@id": "%ORIGIN%/#publisher"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "%ORIGIN%/#publisher",
+        "name": "Reactify Solutions",
+        "url": "%ORIGIN%/",
+        "logo": "%ORIGIN%/assets/icons/icon-512.png",
+        "email": "barkoffapp@gmail.com",
+        "sameAs": [
+          "https://www.instagram.com/barkoff.app",
+          "https://www.tiktok.com/@barkoff.app",
+          "https://github.com/nikolamirilo/bark-off"
+        ]
+      },
+      {
+        "@type": "MobileApplication",
+        "@id": "%ORIGIN%/#app",
+        "name": "BarkOff",
+        "alternateName": "BarkOff: Separation Anxiety & Bark Control",
+        "url": "%ORIGIN%/",
+        "description": "%DESCRIPTION%",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Android 7.1 and newer",
+        "installUrl": "%ORIGIN%/download",
+        "downloadUrl": "https://github.com/nikolamirilo/bark-off/releases/latest/download/barkoff.apk",
+        "screenshot": "%ORIGIN%/assets/og-image.jpg",
+        "publisher": {
+          "@id": "%ORIGIN%/#publisher"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "%ORIGIN%/#faq",
+        "isPartOf": {
+          "@id": "%ORIGIN%/#website"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need a second phone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You need a phone that stays at home with your dog, and an old phone works well. Keep it plugged in for long sessions, because the screen stays on while BarkOff listens."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can BarkOff help with separation anxiety?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It can help. A familiar voice is one of the things that settles a dog who is home alone, and BarkOff plays yours the moment the barking starts. It is built to support calming and training rather than replace it, so results vary from dog to dog. With severe anxiety, use it alongside a vet or a trainer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will the TV or traffic set it off?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It can. BarkOff goes on loudness, so anything loud enough will play your message, whether it was your dog or a slammed door. Normal TV and traffic sit well under the line, and if something does keep setting it off, lower the sensitivity or move the phone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does my dog hear?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your voice. You record a gentle message for soft barking and a firmer one for loud barking. A cooldown of 5 to 30 seconds keeps the messages from repeating too often."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does BarkOff record my dog?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It measures loudness to spot barks. That audio is never played back or uploaded, and it is deleted when the session ends. Reports keep only the numbers, like the time and loudness of each bark."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which phones does it work on?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Android phones with Android 7.1 or newer. You can download BarkOff from this site today, and it is coming to Google Play soon. BarkOff is not available for iPhone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does Android warn me when I install it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Android shows a warning for any app that does not come from Google Play, so it is expected while BarkOff is a direct download. Allow the install, and only download BarkOff from this site."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does it cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nothing. BarkOff is free. If you like it, you can support the team with a coffee."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I change the sensitivity later?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Move the sliders or calibrate again in Settings whenever you like, for example after moving the phone to another room."
+            }
+          }
+        ]
+      }
+    ]
+  }
 </script>
+
+<script type="module" src="scripts/main.js"></script>
